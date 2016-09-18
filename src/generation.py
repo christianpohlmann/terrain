@@ -46,7 +46,7 @@ class GenerationStrategy(object):
 
 
     def __calc_percentiles(self):
-        '''Convertes each value in the heightmap to the largest percentile in which it
+        '''Converts each value in the heightmap to the largest percentile in which it
         still lies. If values are the same, they are assigned the same percentile.
         '''
         arr_as_srtd_lst = sorted(list(np.ndenumerate(self.heightmap)),
@@ -92,9 +92,9 @@ class GenerationStrategy(object):
         '''
         x,y = pt
         w,h = shape
-        neighbors = [((x-1,y),2),((x-1,y-1),1),((x-1,y+1),1),
-                      ((x,y),10),((x,y-1),2),((x,y+1),2),
-                      ((x+1,y),2),((x+1,y-1),1),((x+1,y+1),1)]
+        neighbors = [((x-1,y),1),((x-1,y-1),1),((x-1,y+1),1),
+                      ((x,y),2),((x,y-1),1),((x,y+1),1),
+                      ((x+1,y),1),((x+1,y-1),1),((x+1,y+1),1)]
         return [((a,b),wt) for ((a,b),wt) in neighbors if a >= 0 and a < w and b >= 0 and b < h]
 
 
