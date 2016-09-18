@@ -3,7 +3,7 @@
 ![Sample image](http://nconc.de/terrain/example1_small.png)
 
 ## About
-_terrain_ is an easily extensible procedural content generation tool for creating and visualizing heightmaps written in Python.
+_terrain_ is an easily extensible procedural content generation tool for creating and visualizing heightmaps. _terrain_ is written in Python.
 Currently two generation and two visualization strategies are supported. The code is quite terse with fewer than 300 LOC (excluding comments and blank lines).
 A typical image generated with _terrain_ can be seen above.
 
@@ -89,3 +89,6 @@ The strategy can now be referenced in JSON configuration files as `"new_vis_stra
 ## Galleries
 * [Images from the examples folder](http://nconc.de/terrain/sample_gallery/)
 * [More images](http://nconc.de/terrain/gallery/)
+
+## Todo
+* Parameterize erosion filters and provide an additional one adapted to hex neighborhoods.
