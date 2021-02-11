@@ -1,5 +1,7 @@
 # terrain
 
+![Sample image](https://raw.githubusercontent.com/christianpohlmann/terrain/master/examples/sample1.png)
+
 ## About
 _terrain_ is an easily extensible procedural content generation tool for creating and visualizing heightmaps. _terrain_ is written in Python.
 Currently two generation and two visualization strategies are supported. The code is quite terse with fewer than 300 LOC (excluding comments and blank lines).
