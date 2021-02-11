@@ -1,46 +1,36 @@
-#
-# Copyright (C) 2014-2016 Christian Pohlmann
-#
-# Licensed under The MIT License (see LICENSE.md)
-#
 from generation import RandomStrategy, LinearFaultStrategy
 from visualization import RectangleStrategy, HexagonStrategy
 import json
 import sys
 
+
 def register_gen_strategies():
-    '''Register generation strategies as key value pairs. The keys given
+    """Register generation strategies as key value pairs. The keys given
     here can then be referenced in the JSON scenario configuration.
-    '''
-    strategies = {}
-    strategies['random'] = RandomStrategy
-    strategies['linear-fault'] = LinearFaultStrategy
+    """
+    strategies = {'random': RandomStrategy, 'linear-fault': LinearFaultStrategy}
     return strategies
 
 
 def register_vis_strategies():
-    '''Register visualization strategies as key value pairs. The keys given
+    """Register visualization strategies as key value pairs. The keys given
     here can then be referenced in the JSON scenario configuration.
-    '''
-    strategies = {}
-    strategies['rect'] = RectangleStrategy
-    strategies['hex'] = HexagonStrategy
-    return strategies    
+    """
+    strategies = {'rect': RectangleStrategy, 'hex': HexagonStrategy}
+    return strategies
 
 
 if __name__ == '__main__':
     gen_strategies = register_gen_strategies()
     vis_strategies = register_vis_strategies()
 
-
     if len(sys.argv) < 2:
         print('No configuration file given.')
     with open(sys.argv[1]) as f:
         config = json.load(f)
-        # fix tuples, because JSON does not support them
         if 'colors' in config['visualization']:
             colors = config['visualization']['colors']
-            config['visualization']['colors'] = [(r,g,b) for [r,g,b] in colors]
+            config['visualization']['colors'] = [(r, g, b) for [r, g, b] in colors]
 
     conf_gen = config['generation']
     strategy = gen_strategies[conf_gen['strategy']](conf_gen['width'],
